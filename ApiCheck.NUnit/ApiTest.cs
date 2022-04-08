@@ -1,13 +1,14 @@
+using ApiCheck.Configuration;
 using ApiCheck.Loader;
 using ApiCheck.NUnit.Writer;
 using ApiCheck.Result;
 using ApiCheck.Result.Difference;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ApiCheck.Configuration;
 
 namespace ApiCheck.NUnit
 {
@@ -81,7 +82,7 @@ namespace ApiCheck.NUnit
       TestCaseData testCaseData = new TestCaseData(!fail, GetFailMessage(comparerResult)).SetName(comparerResult.Name).SetCategory(apiTestData.Category);
       if (apiTestData.Explicit)
       {
-        testCaseData.MakeExplicit("Set explicit by ApiTestAttribute");
+        //testCaseData.MakeExplicit("Set explicit by ApiTestAttribute");
       }
       return testCaseData;
     }

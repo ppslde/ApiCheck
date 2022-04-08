@@ -1,5 +1,4 @@
 ﻿using CommandLine;
-using CommandLine.Text;
 
 namespace ApiCheck.Console
 {
@@ -22,18 +21,5 @@ namespace ApiCheck.Console
 
     [Option('v', "verbose", HelpText = "Runs comparer with logging and prints information to the console.")]
     public bool Verbose { get; set; }
-
-    [HelpOption]
-    public string GetHelp()
-    {
-      HelpText helpText = new HelpText
-      {
-        AdditionalNewLineAfterOption = true,
-        AddDashesToOption = true
-      };
-      helpText.AddPreOptionsLine("Usage: ApiCheck.Console.exe -r <reference assembly> -n <new assembly> [-x <xml report>] [-h <html report>] [-c <config file>] [-v]");
-      helpText.AddOptions(this);
-      return helpText;
-    }
   }
 }

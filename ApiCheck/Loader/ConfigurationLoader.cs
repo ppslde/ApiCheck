@@ -1,5 +1,5 @@
-﻿using System.IO;
-using ApiCheck.Configuration;
+﻿using ApiCheck.Configuration;
+using System.IO;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -16,8 +16,8 @@ namespace ApiCheck.Loader
 
       using (var reader = new StreamReader(stream))
       {
-        Deserializer deserializer = new DeserializerBuilder()
-          .WithNamingConvention(new CamelCaseNamingConvention())
+        var deserializer = new DeserializerBuilder()
+          .WithNamingConvention(CamelCaseNamingConvention.Instance)
           .Build();
 
         ComparerConfiguration configuration = deserializer.Deserialize<ComparerConfiguration>(reader);
